@@ -6,3 +6,4 @@
 # 常见认证学习
 
 [cookie,session 认证](docs/cookie_and_session.md)
+[JWT,Token 认证](docs/JWT.md)
