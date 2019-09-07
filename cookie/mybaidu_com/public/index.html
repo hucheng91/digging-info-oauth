@@ -1,0 +1,80 @@
+<!--
+ * @Author: hucheng
+ * @Date: 2019-06-09 21:17:23
+ * @Description: here is des
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <style>
+    #app {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+
+    .page-container {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header class="page-container">
+      <h1>cookie session 认证</h1>
+      <h1>mybaidu.com</h1>
+    </header>
+    <div class="page-container">
+      <el-input placeholder="请输入用户名" v-model="userName"></el-input>
+      <el-input placeholder="请输入密码" v-model="password"></el-input>
+      <el-button type="primary" @click="send">提交</el-button>
+    </div>
+    <div class="page-container">
+      {{cookieInfo}}
+    </div>
+  </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        password: "",
+        userName: "",
+        cookieInfo: "",
+      }
+    },
+    mounted() {
+
+    },
+    methods: {
+      send() {
+        axios.post("/users/login",
+          {
+            userName: this.userName,
+            password: this.password
+          }).then(res => {
+            this.$message.success('登录成功!');
+            this.getCookie();
+          });
+      },
+      getCookie() {
+        this.cookieInfo = document.cookie;
+      }
+    }
+  })
+</script>
+
+</html>
