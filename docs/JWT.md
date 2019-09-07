@@ -71,3 +71,10 @@ const signature = HMACSHA256(
 所以 JWT 适合做一次行验证，比方邮箱激活账号，Token 适合做 API 请求认证
 
 2者的差别就是 Token 需要服务端存储 token 和用户的关系，JWT不需要，这二者对于前端开发者来说，在调用方式上没有差别
+
+## 安全性相关
+
+- 缩短 token 有效时间
+- secret 定时替换
+- 使用 HTTPS 加密协议
+- 对标准字段 iss、sub、aud、nbf、exp 进行校验 
