@@ -17,6 +17,16 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "debuggerJWT",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/JWT/bin/www",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/index.js"
         }
