@@ -10,3 +10,4 @@
 [oauth2 认证](docs/oauth.md)
 [扫码认证](docs/qrcode.md)
 [sso 单点登录](docs/sso.md)
+[LDAP,扫码认证 ](docs/qrcode.md)
