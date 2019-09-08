@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="../asstes/element.css">
+  <title>确认登陆</title>
+  <style>
+    header {
+      position: fixed;
+      top: 0px;
+    }
+
+    #app {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page-container {
+      margin-top: 10%;
+      width: 900px;
+      border: 1px solid #ddd;
+      padding: 30px;
+    }
+
+    .dialog-content-container {
+      padding: 10px;
+    }
+
+    .dialog-content-container div {
+      margin-left: 30px;
+      display: inline-block;
+    }
+
+    .notice-text {
+      position: absolute;
+      color: red;
+      padding: 5px;
+    }
+
+    .username_q {
+      position: relative;
+    }
+
+    .el-tag+.el-tag {
+      margin-left: 10px;
+    }
+
+    .button-new-tag {
+      margin-left: 10px;
+      height: 32px;
+      line-height: 30px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .input-new-tag {
+      width: 90px;
+      margin-left: 10px;
+      vertical-align: bottom;
+    }
+
+    .page-container button {
+      display: inline-block;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      border-color: #dcdfe6;
+      -webkit-appearance: none;
+      text-align: center;
+      box-sizing: border-box;
+      outline: none;
+      margin: 0;
+      transition: .1s;
+      font-weight: 500;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 4px;
+      color: #fff;
+      background-color: #409eff;
+      border-color: #409eff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="page-container">
+      <button onclick="login()">确认登陆</button>
+    </div>
+  </div>
+</body>
+<script src="asstes/axios.min.js"></script>
+<script>
+  function login() {
+    axios.post("http://192.168.137.1:3005/users/login", { userName: "hucheng" }).then(res => {
+      if (res.data && res.data.status) {
+        alert("登陆成功!");
+      }
+    });
+  }
+</script>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="asstes/element.css">
+  <style>
+    header {
+      position: fixed;
+      top: 0px;
+    }
+
+    #app {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page-container {
+      margin-top: 10%;
+      width: 900px;
+      border: 1px solid #ddd;
+      padding: 30px;
+    }
+
+    .dialog-content-container {
+      padding: 10px;
+    }
+
+    .dialog-content-container div {
+      margin-left: 30px;
+      display: inline-block;
+    }
+
+    .notice-text {
+      position: absolute;
+      color: red;
+      padding: 5px;
+    }
+
+    .username_q {
+      position: relative;
+    }
+
+    .el-tag+.el-tag {
+      margin-left: 10px;
+    }
+
+    .button-new-tag {
+      margin-left: 10px;
+      height: 32px;
+      line-height: 30px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .input-new-tag {
+      width: 90px;
+      margin-left: 10px;
+      vertical-align: bottom;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>类似微信扫码认证</h1>
+    </header>
+    <div class="page-container">
+      <p>http://192.168.137.1:3005/login.html</p>
+      <div id="qrcode"></div>
+    </div>
+  </div>
+</body>
+<script src="./asstes/qrcode.js"></script>
+<script src="asstes/axios.min.js"></script>
+<!-- import Vue before Element -->
+<script src="../asstes/vue.js"></script>
+<!-- import JavaScript -->
+<script src="../asstes/element.js"></script>
+<script>
+  new QRCode(document.querySelector("#qrcode"), "http://192.168.137.1:3005/login.html");
+
+  const isLogin = () => {
+    axios.get("users/isLogin").then(res => {
+      if (res.data.islogin) {
+        document.querySelector("#qrcode").style.display = "none";
+        setTimeout(() =>{
+          alert("登陆成功!");
+        },100);
+        
+        clearInterval(interval);
+      }
+    });
+  } 
+
+  const interval =  setInterval(isLogin,3000);
+</script>
+
+</html>

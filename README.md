@@ -7,3 +7,5 @@
 
 [cookie,session 认证](docs/cookie_and_session.md)
 [JWT,Token 认证](docs/JWT.md)
+[oauth2 认证](docs/oauth.md)
+[扫码认证](qrcode.mde)

@@ -6,7 +6,8 @@
   "scripts": {
     "cookie:mybaidu": "node ./cookie/mybaidu_com/bin/www",
     "jwt": "node ./JWT/bin/www",
-    "oauth2": "node ./oauth2/bin/www"
+    "oauth2": "node ./oauth2/bin/www",
+    "qrcode": "node ./qrcode/bin/www"
   },
   "repository": {
     "type": "git",
