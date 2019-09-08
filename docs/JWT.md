@@ -78,3 +78,9 @@ const signature = HMACSHA256(
 - secret 定时替换
 - 使用 HTTPS 加密协议
 - 对标准字段 iss、sub、aud、nbf、exp 进行校验 
+
+## demo
+https://github.com/hucheng91/digging-info-oauth
+
+如果你喜欢也可以关注我的 公众号 「chromedev」
+![](https://pic4.zhimg.com/80/v2-34ec1fa5dbfc6684ef475fa4265e2cab_hd.jpg)
