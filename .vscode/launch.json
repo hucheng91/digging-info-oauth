@@ -27,6 +27,16 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "debuggerOauth",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/oauth2/bin/www",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/index.js"
         }

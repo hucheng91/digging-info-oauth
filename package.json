@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "cookie:mybaidu": "node ./cookie/mybaidu_com/bin/www",
-    "jwt": "node ./JWT/bin/www"
+    "jwt": "node ./JWT/bin/www",
+    "oauth2": "node ./oauth2/bin/www"
   },
   "repository": {
     "type": "git",
