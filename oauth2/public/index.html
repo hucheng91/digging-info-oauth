@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="asstes/element.css">
+  <style>
+    header{
+      position: fixed;
+      top: 0px;
+    } 
+    
+    #app {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .page-container{
+      margin-top: 10%;
+      width: 900px;
+      border: 1px solid #ddd;
+      padding: 30px;
+    }
+    .dialog-content-container {
+      padding: 10px;
+    }
+    .dialog-content-container div {
+      margin-left: 30px;
+      display: inline-block;
+    }
+    .notice-text {
+      position: absolute;
+      color: red;
+      padding: 5px;
+    }
+    .username_q {
+      position: relative;
+    }
+    .el-tag + .el-tag {
+      margin-left: 10px;
+    }
+    .button-new-tag {
+      margin-left: 10px;
+      height: 32px;
+      line-height: 30px;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .input-new-tag {
+      width: 90px;
+      margin-left: 10px;
+      vertical-align: bottom;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>Oauth2 认证</h1>
+      <h1>Oauth2</h1>
+    </header>
+    <div class="page-container">
+
+      <el-form label-width="80px">
+
+        <el-form-item>
+          <el-button type="primary" @click="send()" >登陆</el-button>
+        </el-form-item>
+      </el-form>
+
+
+    </div>
+  </div>
+</body>
+<!-- import Vue before Element -->
+<script src="./asstes/vue.js"></script>
+<!-- import JavaScript -->
+<script src="./asstes/element.js"></script>
+<script src="./asstes/axios.min.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        password: "",
+        userName: "",
+      }
+    },
+    mounted() {
+    
+      this.addAuth();
+      axios.get("/users/").then( data => {
+        console.log(data.data)
+      });
+    },
+    methods: {
+      addAuth() {
+        const jwt = localStorage.getItem("jwt");
+        axios.defaults.headers.common['Authorization'] =
+          'Bearer ' + localStorage.getItem('jwt');
+      },
+      send() {
+        axios.post("/users/login", { userName: this.userName, password: this.password }).then(res => {
+          const data = res.data;
+          if (data.status == 302) {
+            location.href = data.url; 
+          }
+        });
+      },
+
+      getUser() {
+        axios.get("/users/list").then(data => {
+          const status = 
+          alert(JSON.stringify(data));
+        });
+      },
+    }
+  })
+</script>
+
+</html>
