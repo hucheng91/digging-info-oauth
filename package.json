@@ -26,7 +26,7 @@
     "jws": "^3.2.2",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bluebird": "^3.5.3",
     "cookie-session": "^2.0.0-beta.3",
     "ejs": "^2.6.1",
